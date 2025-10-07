@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calendar-check"></i> Daily Routine Tracker</h1>
+            <div class="timezone-info">
+                <i class="fas fa-globe-asia"></i> Bangladesh Time (GMT+6)
+            </div>
+            <div class="current-time" id="currentTime"></div>
+            <div class="current-date" id="currentDate"></div>
+            
+            <!-- Settings Panel -->
+            <div class="settings-panel" id="settingsPanel">
+                <button class="settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="routine-container">
+            <div class="day-selector">
+                <button class="day-btn active" data-day="saturday">Saturday</button>
+                <button class="day-btn" data-day="sunday">Sunday</button>
+                <button class="day-btn" data-day="monday">Monday</button>
+                <button class="day-btn" data-day="tuesday">Tuesday</button>
+                <button class="day-btn" data-day="wednesday">Wednesday</button>
+                <button class="day-btn" data-day="thursday">Thursday</button>
+                <button class="day-btn" data-day="friday">Friday</button>
+            </div>
+
+            <div class="routine-schedule" id="routineSchedule">
+                <!-- Routine tasks will be dynamically loaded here -->
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Completed: <span id="completedCount">0</span></span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <span>In Progress: <span id="inProgressCount">0</span></span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Missed: <span id="missedCount">0</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="taskModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Task Details</h2>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+
+        <!-- Settings Page Modal -->
+        <div class="modal" id="settingsModal">
+            <div class="modal-content settings-page">
+                <span class="close">&times;</span>
+                <h2><i class="fas fa-cog"></i> Settings & Routine Management</h2>
+                
+                <!-- Settings Header -->
+                <div class="settings-header">
+                    <div class="settings-controls">
+                        <div class="time-control-section">
+                            <h3><i class="fas fa-clock"></i> Time Control</h3>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="manualTimeToggle"> Manual Time Control
+                            </label>
+                            <div class="manual-time-control" id="manualTimeControl" style="display: none;">
+                                <input type="time" id="manualTimeInput">
+                                <button id="setManualTime">Set Time</button>
+                            </div>
+                        </div>
+                        
+                        <div class="data-control-section">
+                            <h3><i class="fas fa-database"></i> Data Management</h3>
+                            <button id="exportData"><i class="fas fa-download"></i> Export Data</button>
+                            <button id="importData"><i class="fas fa-upload"></i> Import Data</button>
+                            <input type="file" id="importFile" accept=".json" style="display: none;">
+                        </div>
+                        
+                        <div class="report-control-section">
+                            <h3><i class="fas fa-chart-line"></i> Progress Report</h3>
+                            <button id="openReport"><i class="fas fa-chart-bar"></i> Generate Report</button>
+                            <button id="clearReportData"><i class="fas fa-trash"></i> Clear Data</button>
+                        </div>
+                    </div>
+                    
+                    <div class="add-task-section">
+                        <button class="add-new-task-btn" id="addNewTaskBtn">
+                            <i class="fas fa-plus"></i> Add New Task
+                        </button>
+                    </div>
+                </div>
+
+                <!-- All Routines Display -->
+                <div class="all-routines-container">
+                    <h3><i class="fas fa-calendar-week"></i> All Weekly Routines</h3>
+                    <div class="routines-grid" id="routinesGrid">
+                        <!-- All routines will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add/Edit Task Modal -->
+        <div class="modal" id="taskFormModal">
+            <div class="modal-content task-form-content">
+                <span class="close">&times;</span>
+                <h2 id="taskFormTitle"><i class="fas fa-plus"></i> Add New Task</h2>
+                <form id="taskForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Day:</label>
+                            <select id="taskDay" required>
+                                <option value="saturday">Saturday</option>
+                                <option value="sunday">Sunday</option>
+                                <option value="monday">Monday</option>
+                                <option value="tuesday">Tuesday</option>
+                                <option value="wednesday">Wednesday</option>
+                                <option value="thursday">Thursday</option>
+                                <option value="friday">Friday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Time:</label>
+                            <input type="time" id="taskTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration (minutes):</label>
+                            <input type="number" id="taskDuration" min="5" max="480" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="taskDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Type:</label>
+                            <select id="taskType">
+                                <option value="personal">Personal</option>
+                                <option value="study">Study</option>
+                                <option value="work">Work</option>
+                                <option value="health">Health</option>
+                                <option value="class">Class</option>
+                                <option value="religious">Religious</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Special Category:</label>
+                            <select id="taskSpecial">
+                                <option value="">None</option>
+                                <option value="class-time">Class Time</option>
+                                <option value="religious-time">Religious Time</option>
+                                <option value="weekend">Weekend</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancelTask">Cancel</button>
+                        <button type="submit" class="save-task-btn" id="saveTask">Save Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Progress Report Modal -->
+        <div class="modal" id="reportModal">
+            <div class="modal-content report-content">
+                <span class="close">&times;</span>
+                <h2><i class="fas fa-chart-line"></i> Progress Report</h2>
+                
+                <div class="report-filters">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Select Month:</label>
+                            <select id="reportMonth">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Year:</label>
+                            <select id="reportYear">
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Report Type:</label>
+                            <select id="reportType">
+                                <option value="monthly">Monthly Summary</option>
+                                <option value="weekly">Weekly Breakdown</option>
+                                <option value="daily">Daily Details</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="generate-report-btn" id="generateReport">
+                            <i class="fas fa-chart-bar"></i> Generate Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="report-results" id="reportResults" style="display: none;">
+                    <h3>Report Results</h3>
+                    <div class="report-summary" id="reportSummary"></div>
+                    <div class="report-charts" id="reportCharts"></div>
+                    <div class="report-details" id="reportDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

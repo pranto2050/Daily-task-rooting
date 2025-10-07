@@ -1,0 +1,791 @@
+{
+  "saturday": [
+    {
+      "time": "06:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "06:30",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 60,
+      "type": "health",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "07:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "08:00",
+      "title": "University Classes",
+      "description": "Attend university classes (8 AM - 5 PM)",
+      "duration": 540,
+      "type": "class",
+      "special": "class-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:00",
+      "title": "Evening Break",
+      "description": "Rest and refresh after classes",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:30",
+      "title": "Web Development Study",
+      "description": "Learn HTML, CSS, JavaScript, React",
+      "duration": 120,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:30",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 45,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:15",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 90,
+      "type": "work",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:45",
+      "title": "Reading & Learning",
+      "description": "Read books, articles, or online courses",
+      "duration": 60,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Relaxation",
+      "description": "Watch TV, listen to music, or relax",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 15,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 390,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "sunday": [
+    {
+      "time": "06:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "06:30",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 60,
+      "type": "health",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "07:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "08:00",
+      "title": "University Classes",
+      "description": "Attend university classes (8 AM - 5 PM)",
+      "duration": 540,
+      "type": "class",
+      "special": "class-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:00",
+      "title": "Evening Break",
+      "description": "Rest and refresh after classes",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:30",
+      "title": "Web Development Study",
+      "description": "Learn HTML, CSS, JavaScript, React",
+      "duration": 120,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:30",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 45,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:15",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 90,
+      "type": "work",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:45",
+      "title": "Reading & Learning",
+      "description": "Read books, articles, or online courses",
+      "duration": 60,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Relaxation",
+      "description": "Watch TV, listen to music, or relax",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 15,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 390,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "monday": [
+    {
+      "time": "06:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "06:30",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 60,
+      "type": "health",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "07:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "08:00",
+      "title": "University Classes",
+      "description": "Attend university classes (8 AM - 5 PM)",
+      "duration": 540,
+      "type": "class",
+      "special": "class-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:00",
+      "title": "Evening Break",
+      "description": "Rest and refresh after classes",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:30",
+      "title": "Web Development Study",
+      "description": "Learn HTML, CSS, JavaScript, React",
+      "duration": 120,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:30",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 45,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:15",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 90,
+      "type": "work",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:45",
+      "title": "Reading & Learning",
+      "description": "Read books, articles, or online courses",
+      "duration": 60,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Relaxation",
+      "description": "Watch TV, listen to music, or relax",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 15,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 390,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "tuesday": [
+    {
+      "time": "06:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "06:30",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 60,
+      "type": "health",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "07:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "08:00",
+      "title": "University Classes",
+      "description": "Attend university classes (8 AM - 5 PM)",
+      "duration": 540,
+      "type": "class",
+      "special": "class-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:00",
+      "title": "Evening Break",
+      "description": "Rest and refresh after classes",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:30",
+      "title": "Web Development Study",
+      "description": "Learn HTML, CSS, JavaScript, React",
+      "duration": 120,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:30",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 45,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:15",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 90,
+      "type": "work",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:45",
+      "title": "Reading & Learning",
+      "description": "Read books, articles, or online courses",
+      "duration": 60,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Relaxation",
+      "description": "Watch TV, listen to music, or relax",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 15,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 390,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "wednesday": [
+    {
+      "time": "06:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "06:30",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 60,
+      "type": "health",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "07:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "08:00",
+      "title": "University Classes",
+      "description": "Attend university classes (8 AM - 5 PM)",
+      "duration": 540,
+      "type": "class",
+      "special": "class-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:00",
+      "title": "Evening Break",
+      "description": "Rest and refresh after classes",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:30",
+      "title": "Web Development Study",
+      "description": "Learn HTML, CSS, JavaScript, React",
+      "duration": 120,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:30",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 45,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:15",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 90,
+      "type": "work",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:45",
+      "title": "Reading & Learning",
+      "description": "Read books, articles, or online courses",
+      "duration": 60,
+      "type": "study",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Relaxation",
+      "description": "Watch TV, listen to music, or relax",
+      "duration": 30,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 15,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 390,
+      "type": "personal",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "thursday": [
+    {
+      "time": "08:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up (Weekend)",
+      "duration": 60,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "09:00",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 90,
+      "type": "health",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "10:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 45,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "11:15",
+      "title": "Web Development Study",
+      "description": "Intensive coding and learning session",
+      "duration": 180,
+      "type": "study",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "14:15",
+      "title": "Lunch Break",
+      "description": "Lunch and short rest",
+      "duration": 45,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "15:00",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 180,
+      "type": "work",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "18:00",
+      "title": "Evening Activities",
+      "description": "Hobbies, reading, or personal time",
+      "duration": 120,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:00",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 60,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "21:00",
+      "title": "Relaxation & Entertainment",
+      "description": "Watch movies, play games, or relax",
+      "duration": 120,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:00",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 30,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:30",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 510,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    }
+  ],
+  "friday": [
+    {
+      "time": "08:00",
+      "title": "Wake up & Morning Routine",
+      "description": "Wake up, brush teeth, freshen up (Weekend)",
+      "duration": 60,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "09:00",
+      "title": "Exercise & Workout",
+      "description": "Physical exercise and fitness routine",
+      "duration": 90,
+      "type": "health",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "10:30",
+      "title": "Breakfast",
+      "description": "Healthy breakfast and coffee",
+      "duration": 45,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "11:15",
+      "title": "Web Development Study",
+      "description": "Intensive coding and learning session",
+      "duration": 45,
+      "type": "study",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "12:00",
+      "title": "Jummah Prayer",
+      "description": "Friday Prayer and Religious Ceremony (12:00 PM - 2:00 PM)",
+      "duration": 120,
+      "type": "religious",
+      "special": "religious-time",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "14:00",
+      "title": "Lunch Break",
+      "description": "Lunch after prayer",
+      "duration": 45,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "14:45",
+      "title": "Project Work",
+      "description": "Work on personal coding projects",
+      "duration": 180,
+      "type": "work",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "17:45",
+      "title": "Evening Activities",
+      "description": "Hobbies, reading, or personal time",
+      "duration": 120,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "19:45",
+      "title": "Dinner",
+      "description": "Evening meal with family",
+      "duration": 60,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "20:45",
+      "title": "Relaxation & Entertainment",
+      "description": "Watch movies, play games, or relax",
+      "duration": 120,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "22:45",
+      "title": "Prepare for Tomorrow",
+      "description": "Plan next day, prepare clothes",
+      "duration": 30,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    },
+    {
+      "time": "23:15",
+      "title": "Sleep",
+      "description": "Go to bed for good night sleep",
+      "duration": 525,
+      "type": "personal",
+      "special": "weekend",
+      "completed": false,
+      "skipped": false
+    }
+  ]
+}
