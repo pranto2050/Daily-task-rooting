@@ -490,6 +490,11 @@ class DailyRoutineTracker {
         
         // Add completion animation
         this.animateTaskCompletion();
+        
+        // Add haptic feedback for mobile
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
     }
 
     skipTask(index) {
@@ -510,6 +515,11 @@ class DailyRoutineTracker {
         
         // Show warning notification
         this.showNotification('Task skipped. Try to complete it next time!', 'warning');
+        
+        // Add haptic feedback for mobile
+        if (navigator.vibrate) {
+            navigator.vibrate([50, 100, 50]);
+        }
     }
 
     markIncomplete(index) {
@@ -559,6 +569,11 @@ class DailyRoutineTracker {
         
         // Show notification
         this.showNotification('Task marked as missed!', 'warning');
+        
+        // Add haptic feedback for mobile
+        if (navigator.vibrate) {
+            navigator.vibrate([100, 50, 100]);
+        }
     }
 
     animateTaskCompletion() {

@@ -1391,3 +1391,443 @@ header h1 i {
         justify-content: center;
     }
 }
+
+/* Enhanced Mobile Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+        margin: 0;
+    }
+    
+    .header {
+        padding: 15px 10px;
+        margin-bottom: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .time-display {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+    
+    .day-selector {
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 15px;
+    }
+    
+    .day-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        min-width: 45px;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 1.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .task-item {
+        padding: 12px;
+        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-content {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .task-title {
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    
+    .task-description {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .task-actions {
+        width: 100%;
+        flex-direction: row;
+        gap: 6px;
+        justify-content: space-between;
+    }
+    
+    .action-btn {
+        flex: 1;
+        padding: 8px 6px;
+        font-size: 0.75rem;
+        min-height: 36px;
+    }
+    
+    .action-btn i {
+        font-size: 0.7rem;
+    }
+    
+    .settings-panel {
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+    }
+    
+    .settings-content {
+        padding: 15px 10px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .settings-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .settings-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .control-section {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .control-section h3 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .control-section button {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        margin: 2px 0;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: 10px auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .report-content {
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    .report-filters {
+        padding: 15px;
+    }
+    
+    .form-actions {
+        margin-top: 15px;
+    }
+    
+    .generate-report-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .summary-card {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .summary-card h4 {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+    
+    .summary-card .value {
+        font-size: 1.1rem;
+    }
+    
+    .detail-item {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .detail-date {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .detail-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .task-details {
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    .task-item {
+        padding: 8px;
+        margin: 4px 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-time {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+    
+    .task-title {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    
+    .task-status {
+        font-size: 0.7rem;
+    }
+    
+    .dashboard-content {
+        padding: 10px;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .week-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .routines-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .routine-day {
+        padding: 15px;
+    }
+    
+    .routine-day h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .routine-task-item {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .routine-task-time {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+    
+    .routine-task-title {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+    
+    .routine-task-description {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .routine-task-actions {
+        width: 100%;
+        gap: 6px;
+    }
+    
+    .routine-task-actions button {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .time-display {
+        font-size: 1.3rem;
+    }
+    
+    .day-selector {
+        gap: 6px;
+    }
+    
+    .day-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .task-item {
+        padding: 15px;
+    }
+    
+    .task-actions {
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .action-btn {
+        flex: 1;
+        padding: 10px 8px;
+    }
+    
+    .settings-panel {
+        width: 90%;
+        max-width: 90%;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 90%;
+    }
+    
+    .report-content {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .settings-panel {
+        width: 80%;
+        max-width: 80%;
+    }
+    
+    .modal-content {
+        width: 80%;
+        max-width: 80%;
+    }
+    
+    .report-content {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    
+    .time-display {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
+    .day-selector {
+        margin-bottom: 10px;
+    }
+    
+    .day-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .stats-container {
+        margin-bottom: 10px;
+    }
+    
+    .task-item {
+        padding: 8px;
+        margin-bottom: 6px;
+    }
+    
+    .task-title {
+        font-size: 0.8rem;
+    }
+    
+    .task-description {
+        font-size: 0.7rem;
+    }
+    
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+}
