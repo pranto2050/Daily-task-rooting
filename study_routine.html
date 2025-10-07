@@ -369,23 +369,58 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 10px;
+            padding: 12px 20px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .back-to-main:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+            transform: translateY(-3px) translateX(2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-main:active {
+            transform: translateY(-1px) translateX(1px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-to-main i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-main:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Initial animation */
+        .back-to-main {
+            animation: slideInFromLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .settings-icon {
@@ -583,6 +618,18 @@
             .settings-actions .add-subject-btn {
                 width: 100%;
                 margin: 2px 0;
+            }
+
+            .back-to-main {
+                top: 10px;
+                left: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                border-radius: 20px;
+            }
+
+            .back-to-main i {
+                font-size: 0.9rem;
             }
         }
     </style>
