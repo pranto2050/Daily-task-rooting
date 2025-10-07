@@ -25,6 +25,16 @@ class StudyRoutineTracker {
             this.subjects = [
                 {
                     id: 1,
+                    name: "Fajr Prayer",
+                    startTime: "05:00",
+                    endTime: "05:15",
+                    description: "Dawn prayer - First prayer of the day",
+                    type: "prayer",
+                    isEditable: true,
+                    prayerType: "fajr"
+                },
+                {
+                    id: 2,
                     name: "Morning Revision",
                     startTime: "06:00",
                     endTime: "07:00",
@@ -32,7 +42,7 @@ class StudyRoutineTracker {
                     type: "study"
                 },
                 {
-                    id: 2,
+                    id: 3,
                     name: "Breakfast",
                     startTime: "07:00",
                     endTime: "07:30",
@@ -40,7 +50,7 @@ class StudyRoutineTracker {
                     type: "meal"
                 },
                 {
-                    id: 3,
+                    id: 4,
                     name: "Mathematics",
                     startTime: "07:30",
                     endTime: "09:00",
@@ -48,7 +58,7 @@ class StudyRoutineTracker {
                     type: "study"
                 },
                 {
-                    id: 4,
+                    id: 5,
                     name: "Short Break",
                     startTime: "09:00",
                     endTime: "09:15",
@@ -56,7 +66,7 @@ class StudyRoutineTracker {
                     type: "break"
                 },
                 {
-                    id: 5,
+                    id: 6,
                     name: "Physics",
                     startTime: "09:15",
                     endTime: "10:45",
@@ -64,7 +74,7 @@ class StudyRoutineTracker {
                     type: "study"
                 },
                 {
-                    id: 6,
+                    id: 7,
                     name: "Chemistry",
                     startTime: "10:45",
                     endTime: "12:00",
@@ -72,50 +82,90 @@ class StudyRoutineTracker {
                     type: "study"
                 },
                 {
-                    id: 7,
-                    name: "Lunch Break",
+                    id: 8,
+                    name: "Dhuhr Prayer",
                     startTime: "12:00",
-                    endTime: "12:30",
+                    endTime: "12:15",
+                    description: "Midday prayer - Second prayer of the day",
+                    type: "prayer",
+                    isEditable: true,
+                    prayerType: "dhuhr"
+                },
+                {
+                    id: 9,
+                    name: "Lunch Break",
+                    startTime: "12:15",
+                    endTime: "12:45",
                     description: "Lunch and rest",
                     type: "meal"
                 },
                 {
-                    id: 8,
+                    id: 10,
                     name: "English",
-                    startTime: "12:30",
-                    endTime: "13:30",
+                    startTime: "12:45",
+                    endTime: "13:45",
                     description: "Grammar, vocabulary, and literature",
                     type: "study"
                 },
                 {
-                    id: 9,
+                    id: 11,
                     name: "Biology",
-                    startTime: "13:30",
-                    endTime: "14:30",
+                    startTime: "13:45",
+                    endTime: "14:45",
                     description: "Botany and zoology concepts",
                     type: "study"
                 },
                 {
-                    id: 10,
+                    id: 12,
+                    name: "Asr Prayer",
+                    startTime: "15:00",
+                    endTime: "15:15",
+                    description: "Afternoon prayer - Third prayer of the day",
+                    type: "prayer",
+                    isEditable: true,
+                    prayerType: "asr"
+                },
+                {
+                    id: 13,
                     name: "Evening Break",
-                    startTime: "14:30",
-                    endTime: "15:00",
+                    startTime: "15:15",
+                    endTime: "15:45",
                     description: "Rest and light snack",
                     type: "break"
                 },
                 {
-                    id: 11,
+                    id: 14,
                     name: "Computer Science",
-                    startTime: "15:00",
-                    endTime: "16:00",
+                    startTime: "15:45",
+                    endTime: "16:45",
                     description: "Programming and theory",
                     type: "study"
                 },
                 {
-                    id: 12,
+                    id: 15,
+                    name: "Maghrib Prayer",
+                    startTime: "18:00",
+                    endTime: "18:15",
+                    description: "Sunset prayer - Fourth prayer of the day",
+                    type: "prayer",
+                    isEditable: true,
+                    prayerType: "maghrib"
+                },
+                {
+                    id: 16,
+                    name: "Isha Prayer",
+                    startTime: "19:30",
+                    endTime: "19:45",
+                    description: "Night prayer - Fifth prayer of the day",
+                    type: "prayer",
+                    isEditable: true,
+                    prayerType: "isha"
+                },
+                {
+                    id: 17,
                     name: "Sleep",
-                    startTime: "16:00",
-                    endTime: "18:00",
+                    startTime: "20:00",
+                    endTime: "22:00",
                     description: "Power nap for better focus",
                     type: "sleep"
                 }
@@ -169,17 +219,25 @@ class StudyRoutineTracker {
         sortedSubjects.forEach((subject, index) => {
             const status = this.getSessionStatus(subject);
             const sessionElement = document.createElement('div');
-            sessionElement.className = `study-session ${status}`;
+            sessionElement.className = `study-session ${status} ${subject.type}`;
             
             const timeRange = `${subject.startTime} - ${subject.endTime}`;
             const duration = this.calculateDuration(subject.startTime, subject.endTime);
             
+            // Special handling for prayer times
+            const isPrayer = subject.type === 'prayer';
+            const prayerIcon = isPrayer ? '<i class="fas fa-mosque"></i> ' : '';
+            const timeClickable = isPrayer && subject.isEditable ? 'clickable-time' : '';
+            
             sessionElement.innerHTML = `
-                <div class="session-time">${timeRange}</div>
+                <div class="session-time ${timeClickable}" ${isPrayer && subject.isEditable ? `onclick="studyTracker.editPrayerTime(${index})"` : ''}>
+                    ${timeRange}
+                    ${isPrayer && subject.isEditable ? '<i class="fas fa-edit edit-time-icon"></i>' : ''}
+                </div>
                 <div class="session-content">
-                    <div class="session-title">${subject.name}</div>
+                    <div class="session-title">${prayerIcon}${subject.name}</div>
                     <div class="session-description">${subject.description}</div>
-                    <span class="session-subject">${subject.type.toUpperCase()}</span>
+                    <span class="session-subject ${subject.type}">${subject.type.toUpperCase()}</span>
                 </div>
                 <div class="session-actions">
                     ${status === 'completed' ? `
@@ -194,6 +252,11 @@ class StudyRoutineTracker {
                             <i class="fas fa-times"></i> Miss
                         </button>
                     `}
+                    ${isPrayer ? `
+                        <button class="session-btn edit-btn" onclick="studyTracker.editPrayerTime(${index})" title="Edit Prayer Time">
+                            <i class="fas fa-clock"></i>
+                        </button>
+                    ` : ''}
                 </div>
             `;
             
@@ -361,6 +424,7 @@ class StudyRoutineTracker {
         const startTime = document.getElementById('startTime').value;
         const endTime = document.getElementById('endTime').value;
         const description = document.getElementById('subjectDescription').value.trim();
+        const type = document.getElementById('subjectType') ? document.getElementById('subjectType').value : 'study';
 
         if (!name || !startTime || !endTime) {
             this.showNotification('Please fill in all required fields!', 'error');
@@ -378,7 +442,9 @@ class StudyRoutineTracker {
             startTime,
             endTime,
             description,
-            type: 'study'
+            type: type,
+            isEditable: type === 'prayer',
+            prayerType: type === 'prayer' ? this.generatePrayerType(name) : null
         };
 
         if (this.isEditing) {
@@ -396,10 +462,163 @@ class StudyRoutineTracker {
         this.closeSubjectModal();
     }
 
+    editPrayerTime(index) {
+        const subject = this.subjects[index];
+        const newStartTime = prompt(`Enter new start time for ${subject.name}:`, subject.startTime);
+        if (newStartTime && this.isValidTime(newStartTime)) {
+            const newEndTime = prompt(`Enter new end time for ${subject.name}:`, subject.endTime);
+            if (newEndTime && this.isValidTime(newEndTime) && newStartTime < newEndTime) {
+                subject.startTime = newStartTime;
+                subject.endTime = newEndTime;
+                this.saveSubjects();
+                this.renderStudySchedule();
+                this.renderSubjects();
+                this.showNotification('Prayer time updated successfully!', 'success');
+            } else {
+                this.showNotification('Invalid end time!', 'error');
+            }
+        } else if (newStartTime) {
+            this.showNotification('Invalid start time!', 'error');
+        }
+    }
+
+    isValidTime(timeString) {
+        const timeRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
+        return timeRegex.test(timeString);
+    }
+
+    generatePrayerType(name) {
+        const prayerTypes = {
+            'fajr': 'fajr',
+            'dhuhr': 'dhuhr', 
+            'asr': 'asr',
+            'maghrib': 'maghrib',
+            'isha': 'isha'
+        };
+        
+        const lowerName = name.toLowerCase();
+        for (const [key, value] of Object.entries(prayerTypes)) {
+            if (lowerName.includes(key)) {
+                return value;
+            }
+        }
+        return 'custom';
+    }
+
+    addPrayer() {
+        this.isEditing = false;
+        this.editingIndex = -1;
+        this.openPrayerModal();
+    }
+
+    openPrayerModal() {
+        // Create prayer modal if it doesn't exist
+        if (!document.getElementById('prayerModal')) {
+            this.createPrayerModal();
+        }
+        document.getElementById('prayerModal').style.display = 'block';
+    }
+
+    createPrayerModal() {
+        const modal = document.createElement('div');
+        modal.id = 'prayerModal';
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close" onclick="studyTracker.closePrayerModal()">&times;</span>
+                <h2><i class="fas fa-mosque"></i> Add New Prayer</h2>
+                <form id="prayerForm">
+                    <div class="form-group">
+                        <label>Prayer Name:</label>
+                        <input type="text" id="prayerName" placeholder="e.g., Tahajjud, Witr, Sunnah" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Time:</label>
+                            <input type="time" id="prayerStartTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label>End Time:</label>
+                            <input type="time" id="prayerEndTime" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="prayerDescription" placeholder="Description of the prayer"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="action-btn complete-btn">
+                            <i class="fas fa-save"></i> Add Prayer
+                        </button>
+                        <button type="button" class="action-btn incomplete-btn" onclick="studyTracker.closePrayerModal()">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Add event listener for prayer form
+        document.getElementById('prayerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.savePrayer();
+        });
+    }
+
+    savePrayer() {
+        const name = document.getElementById('prayerName').value.trim();
+        const startTime = document.getElementById('prayerStartTime').value;
+        const endTime = document.getElementById('prayerEndTime').value;
+        const description = document.getElementById('prayerDescription').value.trim();
+
+        if (!name || !startTime || !endTime) {
+            this.showNotification('Please fill in all required fields!', 'error');
+            return;
+        }
+
+        if (startTime >= endTime) {
+            this.showNotification('End time must be after start time!', 'error');
+            return;
+        }
+
+        const prayer = {
+            id: Date.now(),
+            name: name,
+            startTime: startTime,
+            endTime: endTime,
+            description: description || `${name} prayer`,
+            type: 'prayer',
+            isEditable: true,
+            prayerType: this.generatePrayerType(name)
+        };
+
+        this.subjects.push(prayer);
+        this.saveSubjects();
+        this.renderSubjects();
+        this.renderStudySchedule();
+        this.updateStats();
+        this.closePrayerModal();
+        this.showNotification('Prayer added successfully!', 'success');
+    }
+
+    closePrayerModal() {
+        const modal = document.getElementById('prayerModal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.getElementById('prayerForm').reset();
+        }
+    }
+
     setupEventListeners() {
         // Add subject button
         document.getElementById('addSubjectBtn').addEventListener('click', () => {
             this.addSubject();
+        });
+
+        // Add prayer button
+        document.getElementById('addPrayerBtn').addEventListener('click', () => {
+            this.addPrayer();
         });
 
         // Subject form
