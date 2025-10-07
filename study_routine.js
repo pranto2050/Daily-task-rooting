@@ -188,7 +188,7 @@ class StudyRoutineTracker {
         const bangladeshTime = new Date(now.toLocaleString("en-US", {timeZone: this.bangladeshTimeZone}));
         
         const timeString = bangladeshTime.toLocaleTimeString('en-US', {
-            hour12: false,
+            hour12: true,
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit'
@@ -250,7 +250,7 @@ class StudyRoutineTracker {
             const sessionElement = document.createElement('div');
             sessionElement.className = `study-session ${status} ${subject.type}`;
             
-            const timeRange = `${subject.startTime} - ${subject.endTime}`;
+            const timeRange = `${this.formatTimeToAMPM(subject.startTime)} - ${this.formatTimeToAMPM(subject.endTime)}`;
             const duration = this.calculateDuration(subject.startTime, subject.endTime);
             
             // Special handling for prayer times
@@ -306,6 +306,14 @@ class StudyRoutineTracker {
         return `${diffMinutes}m`;
     }
 
+    formatTimeToAMPM(timeString) {
+        const [hours, minutes] = timeString.split(':');
+        const hour24 = parseInt(hours);
+        const hour12 = hour24 === 0 ? 12 : hour24 > 12 ? hour24 - 12 : hour24;
+        const ampm = hour24 >= 12 ? 'PM' : 'AM';
+        return `${hour12}:${minutes} ${ampm}`;
+    }
+
     renderSubjects() {
         const container = document.getElementById('subjectsList');
         container.innerHTML = '';
@@ -316,7 +324,7 @@ class StudyRoutineTracker {
             
             subjectCard.innerHTML = `
                 <div class="subject-name">${subject.name}</div>
-                <div class="subject-time">${subject.startTime} - ${subject.endTime}</div>
+                <div class="subject-time">${this.formatTimeToAMPM(subject.startTime)} - ${this.formatTimeToAMPM(subject.endTime)}</div>
                 <div class="subject-actions">
                     <button class="subject-btn edit-btn" onclick="studyTracker.editSubject(${index})">
                         <i class="fas fa-edit"></i> Edit
