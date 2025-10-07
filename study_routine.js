@@ -17,7 +17,11 @@ class StudyRoutineTracker {
         this.updateInterval = setInterval(() => {
             this.updateTime();
             this.updateSessionStatuses();
+            this.updateBangladeshClock();
         }, 1000);
+        
+        // Initialize Bangladesh clock
+        this.updateBangladeshClock();
     }
 
     initializeDefaultSubjects() {
@@ -177,6 +181,31 @@ class StudyRoutineTracker {
     updateTime() {
         const bangladeshTime = new Date().toLocaleString("en-US", {timeZone: this.bangladeshTimeZone});
         this.currentTime = new Date(bangladeshTime);
+    }
+
+    updateBangladeshClock() {
+        const now = new Date();
+        const bangladeshTime = new Date(now.toLocaleString("en-US", {timeZone: this.bangladeshTimeZone}));
+        
+        const timeString = bangladeshTime.toLocaleTimeString('en-US', {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        
+        const dateString = bangladeshTime.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        const timeElement = document.getElementById('bangladeshTime');
+        const dateElement = document.getElementById('bangladeshDate');
+        
+        if (timeElement) timeElement.textContent = timeString;
+        if (dateElement) dateElement.textContent = dateString;
     }
 
     getCurrentTimeString() {
