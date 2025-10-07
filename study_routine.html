@@ -388,6 +388,101 @@
             transform: translateY(-2px);
         }
 
+        .settings-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .settings-icon:hover {
+            background: #5a67d8;
+            transform: translateY(-2px) rotate(90deg);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .settings-panel.open {
+            right: 0;
+        }
+
+        .settings-content {
+            padding: 20px;
+            height: 100%;
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .settings-header h2 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-settings {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .close-settings:hover {
+            background: #c53030;
+            transform: scale(1.05);
+        }
+
+        .settings-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .settings-actions .add-subject-btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
         /* Mobile Responsive for Study Routine */
         @media (max-width: 768px) {
             .study-header h1 {
@@ -467,6 +562,28 @@
             .edit-time-icon {
                 font-size: 0.7rem;
             }
+
+            .settings-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .settings-icon {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .settings-actions {
+                flex-direction: column;
+            }
+
+            .settings-actions .add-subject-btn {
+                width: 100%;
+                margin: 2px 0;
+            }
         }
     </style>
 </head>
@@ -475,6 +592,10 @@
         <i class="fas fa-arrow-left"></i>
         Back to Main
     </a>
+
+    <button class="settings-icon" id="settingsIcon">
+        <i class="fas fa-cog"></i>
+    </button>
 
     <div class="container">
         <div class="study-header">
@@ -487,20 +608,6 @@
             <div id="studySessions"></div>
         </div>
 
-        <div class="study-settings">
-            <div class="settings-header">
-                <h2><i class="fas fa-cog"></i> Study Settings</h2>
-                <div class="header-buttons">
-                    <button class="add-subject-btn" id="addSubjectBtn">
-                        <i class="fas fa-plus"></i> Add Subject
-                    </button>
-                    <button class="add-subject-btn" id="addPrayerBtn" style="background: linear-gradient(135deg, #10b981, #059669);">
-                        <i class="fas fa-mosque"></i> Add Prayer
-                    </button>
-                </div>
-            </div>
-            <div class="subjects-list" id="subjectsList"></div>
-        </div>
 
         <div class="study-stats-section">
             <h2><i class="fas fa-chart-bar"></i> Today's Progress</h2>
@@ -522,6 +629,29 @@
                     <div class="study-stat-label">Study Time</div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Study Settings</h2>
+                <button class="close-settings" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="settings-actions">
+                <button class="add-subject-btn" id="addSubjectBtn">
+                    <i class="fas fa-plus"></i> Add Subject
+                </button>
+                <button class="add-subject-btn" id="addPrayerBtn" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <i class="fas fa-mosque"></i> Add Prayer
+                </button>
+            </div>
+            
+            <div class="subjects-list" id="subjectsList"></div>
         </div>
     </div>
 

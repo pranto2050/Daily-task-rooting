@@ -610,7 +610,27 @@ class StudyRoutineTracker {
         }
     }
 
+    toggleSettings() {
+        const settingsPanel = document.getElementById('settingsPanel');
+        settingsPanel.classList.toggle('open');
+    }
+
+    closeSettings() {
+        const settingsPanel = document.getElementById('settingsPanel');
+        settingsPanel.classList.remove('open');
+    }
+
     setupEventListeners() {
+        // Settings icon
+        document.getElementById('settingsIcon').addEventListener('click', () => {
+            this.toggleSettings();
+        });
+
+        // Close settings
+        document.getElementById('closeSettings').addEventListener('click', () => {
+            this.closeSettings();
+        });
+
         // Add subject button
         document.getElementById('addSubjectBtn').addEventListener('click', () => {
             this.addSubject();
