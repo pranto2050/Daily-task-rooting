@@ -7,6 +7,8 @@ class DailyRoutineTracker {
         this.bangladeshTimeZone = 'Asia/Dhaka';
         this.manualTimeMode = false;
         this.manualTime = null;
+        this.dayOrder = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+        this.followToday = true;
         
         this.init();
     }
@@ -23,6 +25,38 @@ class DailyRoutineTracker {
             this.updateTime();
             this.updateTaskStatuses();
         }, 1000);
+    }
+
+    updateDayBannerAndColor() {
+        const banner = document.getElementById('indexDayBanner');
+        const routineSchedule = document.getElementById('routineSchedule');
+        // The design colors are applied on the wrapper that contains the schedule and banner
+        const wrapper = routineSchedule ? routineSchedule.parentElement : null;
+        if (!banner || !wrapper) return;
+
+        const days = this.dayOrder; // 0=Sun ... 6=Sat
+        const today = this.getCurrentDay();
+        const todayIdx = days.indexOf(today);
+        const selectedIdx = days.indexOf(this.currentDay);
+
+        wrapper.classList.remove('schedule-past', 'schedule-future');
+
+        if (selectedIdx === todayIdx) {
+            banner.textContent = 'Today’s Tasks';
+            return;
+        }
+
+        // Compute forward/backward distance with week wrap-around
+        const forward = (selectedIdx - todayIdx + 7) % 7; // days ahead
+        const backward = (todayIdx - selectedIdx + 7) % 7; // days behind
+
+        if (backward > 0 && backward < forward) {
+            banner.textContent = 'This Is Past for Understand';
+            wrapper.classList.add('schedule-past');
+        } else {
+            banner.textContent = 'Future Task';
+            wrapper.classList.add('schedule-future');
+        }
     }
 
     getCurrentDay() {
@@ -60,9 +94,9 @@ class DailyRoutineTracker {
         document.getElementById('currentTime').textContent = timeString;
         document.getElementById('currentDate').textContent = dateString;
         
-        // Update current day if it changed
+        // Update current day if it changed and we're following today
         const newDay = this.getCurrentDay();
-        if (newDay !== this.currentDay) {
+        if (this.followToday && newDay !== this.currentDay) {
             this.currentDay = newDay;
             this.updateDaySelector();
             this.renderRoutine();
@@ -71,12 +105,36 @@ class DailyRoutineTracker {
 
     updateDaySelector() {
         // Update the active day button
-        document.querySelectorAll('.day-btn').forEach(btn => {
-            btn.classList.remove('active');
+        const dayButtons = document.querySelectorAll('.day-btn');
+        dayButtons.forEach(btn => btn.classList.remove('active', 'past', 'future'));
+
+        // Apply active to selected day
+        dayButtons.forEach(btn => {
             if (btn.dataset.day === this.currentDay) {
                 btn.classList.add('active');
             }
         });
+
+        // Compute relative coloring (past/future) vs today
+        const days = this.dayOrder; // 0=Sun ... 6=Sat
+        const today = this.getCurrentDay();
+        const todayIdx = days.indexOf(today);
+        const idxOf = (d) => days.indexOf(d);
+
+        dayButtons.forEach(btn => {
+            const d = btn.dataset.day;
+            const di = idxOf(d);
+            if (di === todayIdx) return; // today gets default style
+
+            const forward = (di - todayIdx + 7) % 7; // days ahead
+            const backward = (todayIdx - di + 7) % 7; // days behind
+            if (backward > 0 && backward < forward) {
+                btn.classList.add('past');
+            } else {
+                btn.classList.add('future');
+            }
+        });
+        this.updateDayBannerAndColor();
     }
 
     setupEventListeners() {
@@ -85,8 +143,10 @@ class DailyRoutineTracker {
             btn.addEventListener('click', (e) => {
                 document.querySelector('.day-btn.active').classList.remove('active');
                 e.target.classList.add('active');
+                this.followToday = false;
                 this.currentDay = e.target.dataset.day;
                 this.renderRoutine();
+                this.updateDayBannerAndColor();
             });
         });
 

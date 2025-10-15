@@ -95,6 +95,24 @@ header h1 i {
     transform: translateY(-2px);
 }
 
+/* Day selector past/future coloring */
+.day-btn.past {
+    background: linear-gradient(135deg, #f56565, #e53e3e);
+    color: white;
+}
+
+.day-btn.future {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    color: white;
+}
+
+/* Ensure active style wins when selected */
+.day-btn.past.active,
+.day-btn.future.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
 /* Day banner */
 .day-banner {
     margin-top: 10px;
@@ -108,14 +126,14 @@ header h1 i {
 }
 
 /* Past/Future coloring wrappers on schedule container */
-.schedule-past .study-session { border-left-color: #e53e3e !important; }
-.schedule-past .study-session { background: #fff5f5 !important; }
-.schedule-future .study-session { border-left-color: #06b6d4 !important; }
-.schedule-future .study-session { background: #ecfeff !important; }
+.schedule-past .study-session, .schedule-past .task-item { border-left-color: #e53e3e !important; }
+.schedule-past .study-session, .schedule-past .task-item { background: #fff5f5 !important; }
+.schedule-future .study-session, .schedule-future .task-item { border-left-color: #06b6d4 !important; }
+.schedule-future .study-session, .schedule-future .task-item { background: #ecfeff !important; }
 
 /* Past/Future text colors for titles if needed */
-.schedule-past .session-title { color: #c53030 !important; }
-.schedule-future .session-title { color: #0e7490 !important; }
+.schedule-past .session-title, .schedule-past .task-title { color: #c53030 !important; }
+.schedule-future .session-title, .schedule-future .task-title { color: #0e7490 !important; }
 
 .routine-schedule {
     background: rgba(255, 255, 255, 0.95);
