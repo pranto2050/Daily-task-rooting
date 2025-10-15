@@ -95,6 +95,28 @@ header h1 i {
     transform: translateY(-2px);
 }
 
+/* Day banner */
+.day-banner {
+    margin-top: 10px;
+    background: white;
+    color: #2d3748;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Past/Future coloring wrappers on schedule container */
+.schedule-past .study-session { border-left-color: #e53e3e !important; }
+.schedule-past .study-session { background: #fff5f5 !important; }
+.schedule-future .study-session { border-left-color: #06b6d4 !important; }
+.schedule-future .study-session { background: #ecfeff !important; }
+
+/* Past/Future text colors for titles if needed */
+.schedule-past .session-title { color: #c53030 !important; }
+.schedule-future .session-title { color: #0e7490 !important; }
+
 .routine-schedule {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
