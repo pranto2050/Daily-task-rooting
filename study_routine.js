@@ -5,6 +5,7 @@ class StudyRoutineTracker {
         this.bangladeshTimeZone = 'Asia/Dhaka';
         this.isEditing = false;
         this.editingIndex = -1;
+        this.selectedDayIndex = null; // 0=Sun ... 6=Sat
         
         this.initializeDefaultSubjects();
         this.updateTime();
@@ -22,6 +23,9 @@ class StudyRoutineTracker {
         
         // Initialize Bangladesh clock
         this.updateBangladeshClock();
+
+        // Initialize day selector to today
+        this.initDaySelector();
     }
 
     initializeDefaultSubjects() {
@@ -206,6 +210,66 @@ class StudyRoutineTracker {
         
         if (timeElement) timeElement.textContent = timeString;
         if (dateElement) dateElement.textContent = dateString;
+    }
+
+    initDaySelector() {
+        const daySelector = document.getElementById('daySelector');
+        const banner = document.getElementById('dayBanner');
+        const scheduleWrapper = document.querySelector('.study-schedule');
+        if (!daySelector || !banner || !scheduleWrapper) return;
+
+        // Determine today (0=Sun ... 6=Sat) in Dhaka timezone
+        const now = new Date();
+        const bdNow = new Date(now.toLocaleString('en-US', { timeZone: this.bangladeshTimeZone }));
+        const todayIndex = bdNow.getDay();
+        this.selectedDayIndex = todayIndex;
+
+        // Activate today's button
+        [...daySelector.querySelectorAll('.day-btn')].forEach(btn => {
+            btn.classList.toggle('active', Number(btn.dataset.day) === todayIndex);
+            btn.addEventListener('click', () => {
+                this.onSelectDay(Number(btn.dataset.day));
+            });
+        });
+
+        // Initial banner
+        banner.textContent = "Today’s Tasks";
+        scheduleWrapper.classList.remove('schedule-past', 'schedule-future');
+    }
+
+    onSelectDay(dayIndex) {
+        this.selectedDayIndex = dayIndex;
+        const daySelector = document.getElementById('daySelector');
+        const banner = document.getElementById('dayBanner');
+        const scheduleWrapper = document.querySelector('.study-schedule');
+        if (!daySelector || !banner || !scheduleWrapper) return;
+
+        // Update active button
+        [...daySelector.querySelectorAll('.day-btn')].forEach(btn => {
+            btn.classList.toggle('active', Number(btn.dataset.day) === dayIndex);
+        });
+
+        // Compare with today (Dhaka)
+        const now = new Date();
+        const bdNow = new Date(now.toLocaleString('en-US', { timeZone: this.bangladeshTimeZone }));
+        const todayIndex = bdNow.getDay();
+
+        scheduleWrapper.classList.remove('schedule-past', 'schedule-future');
+
+        if (dayIndex < todayIndex || (todayIndex === 0 && dayIndex === 6)) {
+            // Handle Saturday before Sunday rollover specially
+            banner.textContent = "This Is Past for Understand";
+            scheduleWrapper.classList.add('schedule-past');
+        } else if (dayIndex > todayIndex || (todayIndex === 6 && dayIndex === 0)) {
+            // Handle Sunday after Saturday rollover
+            banner.textContent = "Future Task";
+            scheduleWrapper.classList.add('schedule-future');
+        } else {
+            banner.textContent = "Today’s Tasks";
+        }
+
+        // Re-render schedule (same tasks template, but colored via wrapper class)
+        this.renderStudySchedule();
     }
 
     getCurrentTimeString() {
