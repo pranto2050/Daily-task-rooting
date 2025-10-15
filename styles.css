@@ -116,12 +116,16 @@ header h1 i {
 /* Day banner */
 .day-banner {
     margin-top: 10px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    margin-right: auto;
     background: white;
     color: #2d3748;
     padding: 10px 15px;
     border-radius: 10px;
-    display: inline-block;
+    display: block;
     font-weight: 600;
+    text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
